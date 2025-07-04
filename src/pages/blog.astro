@@ -1,0 +1,539 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const allPosts = [
+  {
+    title: "10 Hidden Gems in Southeast Asia You Must Visit",
+    excerpt: "Discover breathtaking destinations off the beaten path in Southeast Asia. From secret beaches to ancient temples, these hidden gems will transform your travel experience.",
+    image: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "hidden-gems-southeast-asia",
+    category: "Destinations",
+    date: "Jun 15, 2025",
+    readTime: "8 min read"
+  },
+  {
+    title: "Budget Backpacking Through Europe: Complete Guide",
+    excerpt: "Learn how to explore Europe on a shoestring budget. Essential tips, accommodation hacks, and money-saving strategies for unforgettable European adventures.",
+    image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "budget-backpacking-europe",
+    category: "Budget Travel",
+    date: "Jun 12, 2025",
+    readTime: "12 min read"
+  },
+  {
+    title: "Street Food Adventures: Best Food Markets Worldwide",
+    excerpt: "Embark on a culinary journey through the world's most vibrant street food markets. Taste authentic flavors and discover local food cultures.",
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "street-food-markets-worldwide",
+    category: "Food & Culture",
+    date: "Jun 10, 2025",
+    readTime: "10 min read"
+  },
+  {
+    title: "Solo Female Travel: Safety Tips and Best Destinations",
+    excerpt: "Empower your solo adventures with essential safety tips and the best destinations for female travelers. Build confidence and create unforgettable memories.",
+    image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "solo-female-travel-guide",
+    category: "Travel Tips",
+    date: "Jun 8, 2025",
+    readTime: "9 min read"
+  },
+  {
+    title: "Digital Nomad Paradise: Top 15 Cities for Remote Work",
+    excerpt: "Discover the perfect blend of productivity and adventure. Explore cities that offer great WiFi, affordable living, and incredible experiences for digital nomads.",
+    image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "digital-nomad-cities",
+    category: "Travel Tips",
+    date: "Jun 5, 2025",
+    readTime: "11 min read"
+  },
+  {
+    title: "Sustainable Travel: How to Explore Responsibly",
+    excerpt: "Make a positive impact while traveling. Learn practical tips for eco-friendly travel, supporting local communities, and preserving destinations for future generations.",
+    image: "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "sustainable-travel-guide",
+    category: "Travel Tips",
+    date: "Jun 3, 2025",
+    readTime: "7 min read"
+  },
+  {
+    title: "Authentic Japan: Cultural Experiences Beyond Tokyo",
+    excerpt: "Discover traditional Japanese culture through authentic experiences. From ancient temples to tea ceremonies, explore Japan's rich heritage beyond the tourist trail.",
+    image: "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "japan-cultural-experiences",
+    category: "Destinations",
+    date: "Jun 1, 2025",
+    readTime: "9 min read"
+  },
+  {
+    title: "50 Budget Travel Hacks That Actually Work",
+    excerpt: "Discover proven money-saving strategies for budget travelers. From flight deals to accommodation tricks, these hacks will stretch your travel budget further.",
+    image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "budget-travel-hacks",
+    category: "Budget Travel",
+    date: "Jun 28, 2025",
+    readTime: "10 min read"
+  },
+  {
+    title: "Mediterranean Food Culture: A Culinary Journey",
+    excerpt: "Explore the rich culinary traditions of the Mediterranean. From Greek tavernas to Italian trattorias, discover authentic flavors and food culture.",
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "mediterranean-food-culture",
+    category: "Food & Culture",
+    date: "Jun 25, 2025",
+    readTime: "8 min read"
+  },
+  {
+    title: "Patagonia Adventure Guide: Exploring the End of the World",
+    excerpt: "Discover the wild beauty of Patagonia. From glaciers to mountains, explore Argentina and Chile's most spectacular wilderness region.",
+    image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "patagonia-adventure-guide",
+    category: "Destinations",
+    date: "Jun 22, 2025",
+    readTime: "11 min read"
+  },
+  {
+    title: "Travel Photography Tips: Capturing Memories Like a Pro",
+    excerpt: "Master the art of travel photography with expert tips and techniques. Learn to capture stunning travel photos that tell your story and preserve memories.",
+    image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "travel-photography-tips",
+    category: "Travel Tips",
+    date: "Jun 20, 2025",
+    readTime: "9 min read"
+  },
+  {
+    title: "African Safari Guide: Wildlife Adventures in East Africa",
+    excerpt: "Experience the magic of African wildlife safaris. From the Serengeti to Masai Mara, discover the best safari destinations and wildlife viewing opportunities.",
+    image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "african-safari-guide",
+    category: "Destinations",
+    date: "Jun 18, 2025",
+    readTime: "10 min read"
+  },
+  {
+    title: "Backpacking Gear Essentials: Complete Packing Guide",
+    excerpt: "Master the art of backpacking with our comprehensive gear guide. Learn what to pack, what to leave behind, and how to travel light without sacrificing comfort.",
+    image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "backpacking-gear-essentials",
+    category: "Travel Tips",
+    date: "Jun 15, 2025",
+    readTime: "8 min read"
+  },
+  {
+    title: "Indian Spice Trail: Culinary Journey Through Regional Cuisines",
+    excerpt: "Explore India's diverse culinary landscape through regional specialties and spice traditions. From Kerala's coconut curries to Punjab's hearty dishes.",
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "indian-spice-trail",
+    category: "Food & Culture",
+    date: "Jun 12, 2025",
+    readTime: "9 min read"
+  },
+  {
+    title: "Iceland Road Trip: Complete Guide to the Ring Road",
+    excerpt: "Discover Iceland's stunning landscapes on the ultimate Ring Road adventure. From waterfalls to glaciers, plan your perfect Icelandic road trip.",
+    image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "iceland-road-trip",
+    category: "Destinations",
+    date: "Jun 10, 2025",
+    readTime: "10 min read"
+  },
+  {
+    title: "Ultimate Hostel Travel Guide: Budget Accommodation Tips",
+    excerpt: "Master the art of hostel travel with insider tips for budget accommodation. Learn how to choose, book, and make the most of hostel stays worldwide.",
+    image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "hostel-travel-guide",
+    category: "Budget Travel",
+    date: "Jun 8, 2025",
+    readTime: "8 min read"
+  },
+  {
+    title: "Travel Insurance Guide: Protecting Your Adventures",
+    excerpt: "Everything you need to know about travel insurance. Learn what to look for, what's covered, and how to choose the right policy for your travels.",
+    image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "travel-insurance-guide",
+    category: "Travel Tips",
+    date: "Jun 5, 2025",
+    readTime: "7 min read"
+  },
+  {
+    title: "Vietnam Motorbike Adventure: Complete Guide to Two-Wheel Travel",
+    excerpt: "Explore Vietnam by motorbike with our comprehensive guide. From Ha Giang Loop to Ho Chi Minh Trail, discover the ultimate Vietnamese adventure.",
+    image: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "vietnam-motorbike-adventure",
+    category: "Destinations",
+    date: "Jun 3, 2025",
+    readTime: "9 min read"
+  },
+  {
+    title: "Mexican Food Culture: Beyond Tacos and Tequila",
+    excerpt: "Discover authentic Mexican cuisine and food culture. From regional specialties to traditional cooking methods, explore Mexico's rich culinary heritage.",
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "mexican-food-culture",
+    category: "Food & Culture",
+    date: "Jun 1, 2025",
+    readTime: "8 min read"
+  },
+  {
+    title: "Camping Essentials Guide: Gear for Outdoor Adventures",
+    excerpt: "Master outdoor camping with our comprehensive gear guide. From tents to cooking equipment, learn what you need for successful camping adventures.",
+    image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+    slug: "camping-essentials-guide",
+    category: "Budget Travel",
+    date: "Jun 30, 2025",
+    readTime: "9 min read"
+  }
+];
+---
+
+<Layout 
+  title="Blog - Magis"
+  description="Explore our collection of travel guides, tips, and destination insights. Discover amazing places and practical advice for your next adventure."
+>
+  <Header />
+  
+  <main class="blog-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>Travel Blog</h1>
+        <p class="lead">Discover amazing destinations, practical travel tips, and cultural insights from around the world</p>
+      </div>
+      
+      <div class="filter-section">
+        <h3>Filter by Category:</h3>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-category="all">All Posts</button>
+          <button class="filter-btn" data-category="Destinations">Destinations</button>
+          <button class="filter-btn" data-category="Travel Tips">Travel Tips</button>
+          <button class="filter-btn" data-category="Food & Culture">Food & Culture</button>
+          <button class="filter-btn" data-category="Budget Travel">Budget Travel</button>
+        </div>
+      </div>
+      
+      <div class="posts-grid" id="posts-grid">
+        {allPosts.map(post => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .blog-page {
+    padding: 2rem 0;
+    min-height: 70vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .filter-section {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .filter-section h3 {
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #2563eb;
+    background: white;
+    color: #2563eb;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #2563eb;
+    color: white;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const postsGrid = document.getElementById('posts-grid');
+    
+    // All posts data
+    const allPosts = [
+      {
+        title: "10 Hidden Gems in Southeast Asia You Must Visit",
+        excerpt: "Discover breathtaking destinations off the beaten path in Southeast Asia. From secret beaches to ancient temples, these hidden gems will transform your travel experience.",
+        image: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "hidden-gems-southeast-asia",
+        category: "Destinations",
+        date: "Jun 15, 2025",
+        readTime: "8 min read"
+      },
+      {
+        title: "Budget Backpacking Through Europe: Complete Guide",
+        excerpt: "Learn how to explore Europe on a shoestring budget. Essential tips, accommodation hacks, and money-saving strategies for unforgettable European adventures.",
+        image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "budget-backpacking-europe",
+        category: "Budget Travel",
+        date: "Jun 12, 2025",
+        readTime: "12 min read"
+      },
+      {
+        title: "Street Food Adventures: Best Food Markets Worldwide",
+        excerpt: "Embark on a culinary journey through the world's most vibrant street food markets. Taste authentic flavors and discover local food cultures.",
+        image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "street-food-markets-worldwide",
+        category: "Food & Culture",
+        date: "Jun 10, 2025",
+        readTime: "10 min read"
+      },
+      {
+        title: "Solo Female Travel: Safety Tips and Best Destinations",
+        excerpt: "Empower your solo adventures with essential safety tips and the best destinations for female travelers. Build confidence and create unforgettable memories.",
+        image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "solo-female-travel-guide",
+        category: "Travel Tips",
+        date: "Jun 8, 2025",
+        readTime: "9 min read"
+      },
+      {
+        title: "Digital Nomad Paradise: Top 15 Cities for Remote Work",
+        excerpt: "Discover the perfect blend of productivity and adventure. Explore cities that offer great WiFi, affordable living, and incredible experiences for digital nomads.",
+        image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "digital-nomad-cities",
+        category: "Travel Tips",
+        date: "Jun 5, 2025",
+        readTime: "11 min read"
+      },
+      {
+        title: "Sustainable Travel: How to Explore Responsibly",
+        excerpt: "Make a positive impact while traveling. Learn practical tips for eco-friendly travel, supporting local communities, and preserving destinations for future generations.",
+        image: "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "sustainable-travel-guide",
+        category: "Travel Tips",
+        date: "Jun 3, 2025",
+        readTime: "7 min read"
+      },
+      {
+        title: "Authentic Japan: Cultural Experiences Beyond Tokyo",
+        excerpt: "Discover traditional Japanese culture through authentic experiences. From ancient temples to tea ceremonies, explore Japan's rich heritage beyond the tourist trail.",
+        image: "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "japan-cultural-experiences",
+        category: "Destinations",
+        date: "Jun 1, 2025",
+        readTime: "9 min read"
+      },
+      {
+        title: "50 Budget Travel Hacks That Actually Work",
+        excerpt: "Discover proven money-saving strategies for budget travelers. From flight deals to accommodation tricks, these hacks will stretch your travel budget further.",
+        image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "budget-travel-hacks",
+        category: "Budget Travel",
+        date: "Jun 28, 2025",
+        readTime: "10 min read"
+      },
+      {
+        title: "Mediterranean Food Culture: A Culinary Journey",
+        excerpt: "Explore the rich culinary traditions of the Mediterranean. From Greek tavernas to Italian trattorias, discover authentic flavors and food culture.",
+        image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "mediterranean-food-culture",
+        category: "Food & Culture",
+        date: "Jun 25, 2025",
+        readTime: "8 min read"
+      },
+      {
+        title: "Patagonia Adventure Guide: Exploring the End of the World",
+        excerpt: "Discover the wild beauty of Patagonia. From glaciers to mountains, explore Argentina and Chile's most spectacular wilderness region.",
+        image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "patagonia-adventure-guide",
+        category: "Destinations",
+        date: "Jun 22, 2025",
+        readTime: "11 min read"
+      },
+      {
+        title: "Travel Photography Tips: Capturing Memories Like a Pro",
+        excerpt: "Master the art of travel photography with expert tips and techniques. Learn to capture stunning travel photos that tell your story and preserve memories.",
+        image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "travel-photography-tips",
+        category: "Travel Tips",
+        date: "Jun 20, 2025",
+        readTime: "9 min read"
+      },
+      {
+        title: "African Safari Guide: Wildlife Adventures in East Africa",
+        excerpt: "Experience the magic of African wildlife safaris. From the Serengeti to Masai Mara, discover the best safari destinations and wildlife viewing opportunities.",
+        image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "african-safari-guide",
+        category: "Destinations",
+        date: "Jun 18, 2025",
+        readTime: "10 min read"
+      },
+      {
+        title: "Backpacking Gear Essentials: Complete Packing Guide",
+        excerpt: "Master the art of backpacking with our comprehensive gear guide. Learn what to pack, what to leave behind, and how to travel light without sacrificing comfort.",
+        image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "backpacking-gear-essentials",
+        category: "Travel Tips",
+        date: "Jun 15, 2025",
+        readTime: "8 min read"
+      },
+      {
+        title: "Indian Spice Trail: Culinary Journey Through Regional Cuisines",
+        excerpt: "Explore India's diverse culinary landscape through regional specialties and spice traditions. From Kerala's coconut curries to Punjab's hearty dishes.",
+        image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "indian-spice-trail",
+        category: "Food & Culture",
+        date: "Jun 12, 2025",
+        readTime: "9 min read"
+      },
+      {
+        title: "Iceland Road Trip: Complete Guide to the Ring Road",
+        excerpt: "Discover Iceland's stunning landscapes on the ultimate Ring Road adventure. From waterfalls to glaciers, plan your perfect Icelandic road trip.",
+        image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "iceland-road-trip",
+        category: "Destinations",
+        date: "Jun 10, 2025",
+        readTime: "10 min read"
+      },
+      {
+        title: "Ultimate Hostel Travel Guide: Budget Accommodation Tips",
+        excerpt: "Master the art of hostel travel with insider tips for budget accommodation. Learn how to choose, book, and make the most of hostel stays worldwide.",
+        image: "https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "hostel-travel-guide",
+        category: "Budget Travel",
+        date: "Jun 8, 2025",
+        readTime: "8 min read"
+      },
+      {
+        title: "Travel Insurance Guide: Protecting Your Adventures",
+        excerpt: "Everything you need to know about travel insurance. Learn what to look for, what's covered, and how to choose the right policy for your travels.",
+        image: "https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "travel-insurance-guide",
+        category: "Travel Tips",
+        date: "Jun 5, 2025",
+        readTime: "7 min read"
+      },
+      {
+        title: "Vietnam Motorbike Adventure: Complete Guide to Two-Wheel Travel",
+        excerpt: "Explore Vietnam by motorbike with our comprehensive guide. From Ha Giang Loop to Ho Chi Minh Trail, discover the ultimate Vietnamese adventure.",
+        image: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "vietnam-motorbike-adventure",
+        category: "Destinations",
+        date: "Jun 3, 2025",
+        readTime: "9 min read"
+      },
+      {
+        title: "Mexican Food Culture: Beyond Tacos and Tequila",
+        excerpt: "Discover authentic Mexican cuisine and food culture. From regional specialties to traditional cooking methods, explore Mexico's rich culinary heritage.",
+        image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "mexican-food-culture",
+        category: "Food & Culture",
+        date: "Jun 1, 2025",
+        readTime: "8 min read"
+      },
+      {
+        title: "Camping Essentials Guide: Gear for Outdoor Adventures",
+        excerpt: "Master outdoor camping with our comprehensive gear guide. From tents to cooking equipment, learn what you need for successful camping adventures.",
+        image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800",
+        slug: "camping-essentials-guide",
+        category: "Budget Travel",
+        date: "Jun 30, 2025",
+        readTime: "9 min read"
+      }
+    ];
+
+    function createBlogCard(post) {
+      return `
+        <article class="blog-card">
+          <div class="card-image">
+            <img src="${post.image}" alt="${post.title}" />
+            <div class="category-badge">${post.category}</div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="date">${post.date}</span>
+              <span class="read-time">${post.readTime}</span>
+            </div>
+            
+            <h3 class="card-title">
+              <a href="/blog/${post.slug}">${post.title}</a>
+            </h3>
+            
+            <p class="card-excerpt">${post.excerpt}</p>
+            
+            <a href="/blog/${post.slug}" class="read-more">Read More →</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function filterPosts(category) {
+      const filteredPosts = category === 'all' ? allPosts : allPosts.filter(post => post.category === category);
+      postsGrid.innerHTML = filteredPosts.map(post => createBlogCard(post)).join('');
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Filter posts
+        const category = button.getAttribute('data-category');
+        filterPosts(category);
+      });
+    });
+  });
+</script>

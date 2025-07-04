@@ -1,0 +1,322 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="About Us - Magis"
+  description="Learn about Magis, your trusted source for travel inspiration, destination guides, and practical travel tips from experienced travelers around the world."
+>
+  <Header />
+  
+  <main class="about-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>About Magis</h1>
+        <p class="lead">Your trusted companion for extraordinary travel experiences around the world</p>
+      </div>
+      
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="story-section">
+            <h2>Our Story</h2>
+            <p>Magis was born from a simple passion: the belief that travel has the power to transform lives, broaden perspectives, and create lasting memories. Founded in 2025, our blog started as a personal journal of adventures and has grown into a comprehensive resource for travelers worldwide.</p>
+            
+            <p>We understand that every journey is unique, whether you're a budget backpacker exploring hidden gems, a luxury traveler seeking exclusive experiences, or a family looking for kid-friendly destinations. Our mission is to provide authentic, practical, and inspiring content that helps you make the most of your travels.</p>
+            
+            <div class="image-content">
+              <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Travel blogger exploring destinations" />
+            </div>
+          </div>
+          
+          <div class="mission-section">
+            <h2>Our Mission</h2>
+            <p>At Magis, we're committed to:</p>
+            <ul>
+              <li><strong>Inspiring Adventure:</strong> Sharing stories and destinations that ignite your wanderlust and encourage you to explore the world</li>
+              <li><strong>Providing Practical Value:</strong> Offering actionable tips, detailed guides, and honest recommendations based on real experiences</li>
+              <li><strong>Promoting Responsible Travel:</strong> Encouraging sustainable tourism practices that benefit local communities and preserve destinations</li>
+              <li><strong>Building Community:</strong> Creating a space where travelers can share experiences, ask questions, and connect with like-minded adventurers</li>
+            </ul>
+          </div>
+          
+          <div class="values-section">
+            <h2>What We Believe In</h2>
+            <div class="values-grid">
+              <div class="value-item">
+                <h3>🌍 Authentic Experiences</h3>
+                <p>We believe in genuine travel experiences that connect you with local cultures, traditions, and people.</p>
+              </div>
+              <div class="value-item">
+                <h3>💡 Practical Guidance</h3>
+                <p>Every piece of advice we share is tested and practical, designed to make your travels smoother and more enjoyable.</p>
+              </div>
+              <div class="value-item">
+                <h3>🌱 Sustainable Tourism</h3>
+                <p>We promote responsible travel practices that protect environments and support local communities.</p>
+              </div>
+              <div class="value-item">
+                <h3>🤝 Inclusive Travel</h3>
+                <p>Travel is for everyone. We provide tips and resources for travelers of all backgrounds, budgets, and abilities.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <p>Our team consists of experienced travelers, writers, and adventure enthusiasts who have explored over 50 countries across six continents. We bring diverse perspectives and expertise to every article, ensuring our content is comprehensive and reliable.</p>
+            
+            <div class="team-image">
+              <img src="https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Travel team working on content" />
+            </div>
+            
+            <p>From budget travel specialists to luxury experience curators, our writers have firsthand experience in every type of travel we cover. We regularly update our content based on recent travels and changing conditions to ensure you receive the most current information.</p>
+          </div>
+          
+          <div class="contact-section">
+            <h2>Get In Touch</h2>
+            <p>We love hearing from our readers! Whether you have travel questions, want to share your own experiences, or are interested in collaborating with us, we'd love to connect.</p>
+            
+            <div class="contact-info">
+              <p><strong>📧 Email:</strong> <a href="mailto:info@magis.world">info@magis.world</a></p>
+              <p><strong>📱 Phone:</strong> +1 (555) 123-4567</p>
+              <p><strong>📍 Address:</strong> New York, NY, USA</p>
+            </div>
+            
+            <p>Follow us on social media for daily travel inspiration, tips, and behind-the-scenes content from our adventures around the world.</p>
+          </div>
+        </div>
+        
+        <div class="sidebar">
+          <div class="stats-card">
+            <h3>By the Numbers</h3>
+            <div class="stat">
+              <span class="number">50+</span>
+              <span class="label">Countries Explored</span>
+            </div>
+            <div class="stat">
+              <span class="number">200+</span>
+              <span class="label">Travel Articles</span>
+            </div>
+            <div class="stat">
+              <span class="number">100k+</span>
+              <span class="label">Monthly Readers</span>
+            </div>
+            <div class="stat">
+              <span class="number">5+</span>
+              <span class="label">Years Experience</span>
+            </div>
+          </div>
+          
+          <div class="newsletter-signup">
+            <h3>Stay Updated</h3>
+            <p>Get our latest travel stories, tips, and destination guides delivered to your inbox.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .about-page {
+    padding: 2rem 0;
+    min-height: 70vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+
+  .main-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  .main-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .main-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: #374151;
+  }
+
+  .main-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .main-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .story-section,
+  .mission-section,
+  .values-section,
+  .team-section,
+  .contact-section {
+    margin-bottom: 3rem;
+  }
+
+  .image-content,
+  .team-image {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .image-content img,
+  .team-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .value-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  .value-item h3 {
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+
+  .contact-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+
+  .contact-info p {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stats-card,
+  .newsletter-signup {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  .stats-card h3,
+  .newsletter-signup h3 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .stat:last-child {
+    border-bottom: none;
+  }
+
+  .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+
+  .label {
+    color: #6b7280;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter-form input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .main-content {
+      padding: 1.5rem;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

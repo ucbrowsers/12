@@ -1,0 +1,314 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Contact Us - Magis"
+  description="Get in touch with Magis. We'd love to hear from you! Contact us for travel questions, collaboration opportunities, or general inquiries."
+>
+  <Header />
+  
+  <main class="contact-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>Contact Us</h1>
+        <p class="lead">We'd love to hear from you! Get in touch with any questions, suggestions, or collaboration ideas.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-form-section">
+          <h2>Send us a Message</h2>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="travel-question">Travel Question</option>
+                <option value="collaboration">Collaboration Opportunity</option>
+                <option value="feedback">Feedback</option>
+                <option value="technical">Technical Issue</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-info-section">
+          <div class="contact-card">
+            <h3>📧 Email Us</h3>
+            <p>For general inquiries and travel questions</p>
+            <a href="mailto:info@magis.world">info@magis.world</a>
+          </div>
+          
+          <div class="contact-card">
+            <h3>📱 Phone</h3>
+            <p>Available Monday to Friday, 9 AM - 5 PM EST</p>
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </div>
+          
+          <div class="contact-card">
+            <h3>📍 Location</h3>
+            <p>New York, NY, USA</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="response-info">
+        <h2>What to Expect</h2>
+        <div class="response-grid">
+          <div class="response-item">
+            <h3>⚡ Quick Response</h3>
+            <p>We typically respond to all inquiries within 24-48 hours during business days.</p>
+          </div>
+          <div class="response-item">
+            <h3>🎯 Personalized Help</h3>
+            <p>Our team provides detailed, personalized responses based on your specific needs.</p>
+          </div>
+          <div class="response-item">
+            <h3>🤝 Collaboration Welcome</h3>
+            <p>We're always open to partnerships, guest posts, and collaboration opportunities.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Can you help plan my trip?</h3>
+            <p>While we don't offer personalized trip planning services, our blog contains comprehensive guides and tips that can help you plan amazing trips. Feel free to ask specific questions!</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do you accept guest posts?</h3>
+            <p>We occasionally accept high-quality guest posts from experienced travelers. Please email us with your proposal and writing samples for consideration.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How can I advertise on your site?</h3>
+            <p>We offer various advertising opportunities for travel-related businesses. Contact our business team for advertising rates and available placements.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I use your photos/content?</h3>
+            <p>All content on our site is copyrighted. Please contact us for permission before using any of our text, images, or other content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .contact-page {
+    padding: 2rem 0;
+    min-height: 70vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  .contact-form-section h2 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+    font-size: 1.1rem;
+  }
+
+  .contact-card p {
+    margin-bottom: 0.5rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+
+  .contact-card a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  .response-info,
+  .faq-section {
+    margin-bottom: 3rem;
+  }
+
+  .response-info h2,
+  .faq-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1f2937;
+    font-size: 2rem;
+  }
+
+  .response-grid,
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .response-item,
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    text-align: center;
+  }
+
+  .response-item h3,
+  .faq-item h3 {
+    margin-bottom: 1rem;
+    color: #1f2937;
+    font-size: 1.2rem;
+  }
+
+  .response-item p,
+  .faq-item p {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-form-section {
+      padding: 1.5rem;
+    }
+
+    .response-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .response-item,
+    .faq-item {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Handle form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success message (in a real implementation, you'd send the data to a server)
+        alert('Thank you for your message! We\'ll get back to you within 24-48 hours.');
+        form.reset();
+      });
+    }
+  });
+</script>
